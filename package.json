@@ -2,5 +2,13 @@
   "name": "rentx-backend",
   "repository": "git@github.com:raphaeldevs/rentx-backend.git",
   "author": "Raphael Corrêa <raphaeldeoliveiracorrea@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^4.3.5",
+    "@types/express": "^4.17.13",
+    "@types/node": "^16.3.1"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
