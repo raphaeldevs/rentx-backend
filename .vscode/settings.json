@@ -1,3 +1,4 @@
 {
   "editor.formatOnSave": false,
+  "typescript.updateImportsOnFileMove.enabled": "prompt"
 }
