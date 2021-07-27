@@ -48,11 +48,9 @@ class ImportCategoryUseCase {
         name
       );
 
-      if (categoryAlreadyExists) {
-        throw new Error("Category already exists");
+      if (!categoryAlreadyExists) {
+        await this.categoryRepository.create({ name, description });
       }
-
-      await this.categoryRepository.create({ name, description });
     });
   }
 }

@@ -4,7 +4,7 @@ import { v4 as uuid } from "uuid";
 @Entity("categories")
 class Category {
   @PrimaryColumn()
-  id?: string;
+  id: string;
 
   @Column()
   name: string;
@@ -13,7 +13,7 @@ class Category {
   description: string;
 
   @CreateDateColumn({ name: "created_at" })
-  createdAt?: Date;
+  createdAt: Date;
 
   constructor() {
     if (!this.id) {
