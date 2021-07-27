@@ -16,9 +16,7 @@ class Specification {
   createdAt: Date;
 
   constructor() {
-    if (!this.id) {
-      this.id = uuid();
-    }
+    this.id = uuid();
   }
 }
 
