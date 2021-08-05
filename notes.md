@@ -46,3 +46,15 @@ create({ name, description }: ICreateCategoryDTO): void {
   this.db.save(category);
 }
 ```
+
+## Testes
+## Tipos
+1. Unitários
+Testa principalmente a regra de negócio.
+
+2. Integração
+> Request -> Routes -> Controllers -> UseCase -> Repository
+
+> Response <- Repository <- UseCase <- Controllers <- Routes <- Request
+
+### TDD - Test Driven Development
