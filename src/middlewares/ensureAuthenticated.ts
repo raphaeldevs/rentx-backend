@@ -38,6 +38,10 @@ async function ensureAuthenticated(
       throw new AppError({ message: "User not found", statusCode: 401 });
     }
 
+    request.user = {
+      id: userId,
+    };
+
     next();
   } catch (err) {
     throw new AppError({
