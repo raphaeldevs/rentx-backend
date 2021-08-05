@@ -104,5 +104,10 @@ dist
 .tern-port
 
 # Tmp files
+
 tmp/*
+tmp/**/*
+
 !tmp/.gitkeep
+!tmp/**/.gitkeep
+!tmp/**/
