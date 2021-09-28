@@ -28,7 +28,7 @@ describe("Create Car", () => {
     expect(car).toBeTruthy();
   });
 
-  it("should not be able to create a car with existent licence plate", async () => {
+  it("should not be able to create a car with existent license plate", async () => {
     expect(async () => {
       const car = {
         name: "Argo",
@@ -43,7 +43,7 @@ describe("Create Car", () => {
       // First create a car
       await createCarUseCase.execute(car);
 
-      // Now try to create a car with the same licence plate
+      // Now try to create a car with the same license plate
       await createCarUseCase.execute(car);
     }).rejects.toBeInstanceOf(AppError);
   });
