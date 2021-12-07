@@ -23,9 +23,9 @@ describe("Create Car", () => {
       category_id: "5c9b9e21-054c-407a-b3a1-8044b8003773",
     };
 
-    await createCarUseCase.execute(car);
+    const createCarResult = await createCarUseCase.execute(car);
 
-    expect(car).toBeTruthy();
+    expect(createCarResult).toHaveProperty("id");
   });
 
   it("should not be able to create a car with existent license plate", async () => {

@@ -3,6 +3,7 @@ import {
   CreateDateColumn,
   Entity,
   JoinColumn,
+  ManyToOne,
   PrimaryColumn,
 } from "typeorm";
 import { v4 as uuid } from "uuid";
@@ -38,6 +39,7 @@ class Car {
   @Column()
   category_id: string;
 
+  @ManyToOne(() => Category)
   @JoinColumn({ name: "category_id" })
   category: Category;
 
@@ -46,6 +48,7 @@ class Car {
 
   constructor() {
     this.id = uuid();
+    this.created_at = new Date();
     this.available = true;
   }
 }
