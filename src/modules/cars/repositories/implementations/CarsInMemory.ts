@@ -40,6 +40,20 @@ class CarsRepositoryInMemory implements ICarsRepository {
 
     return car;
   }
+
+  async findAvailable(
+    filters: Partial<Pick<Car, "name" | "brand" | "category_id">>
+  ): Promise<Car[]> {
+    let cars = this.cars.filter((car) => car.available === true);
+
+    Object.entries(filters).forEach(([key, value]) => {
+      if (value) {
+        cars = cars.filter((car) => car[key] === value);
+      }
+    });
+
+    return cars;
+  }
 }
 
 export default CarsRepositoryInMemory;

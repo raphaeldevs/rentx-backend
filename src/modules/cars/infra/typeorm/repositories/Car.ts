@@ -1,6 +1,7 @@
 import { getRepository, Repository } from "typeorm";
 
 import ICarsRepository, {
+  FindAvailableFilters,
   ICreateCarDTO,
 } from "@modules/cars/repositories/ICars";
 
@@ -41,6 +42,20 @@ class CarsRepository implements ICarsRepository {
     });
 
     return car;
+  }
+
+  async findAvailable(filters: FindAvailableFilters): Promise<Car[]> {
+    const queryBuild = this.repository
+      .createQueryBuilder("car")
+      .where("car.available = true");
+
+    Object.entries(filters).forEach(([key, value]) => {
+      queryBuild.andWhere(`car.${key} = :${key}`, { [key]: value });
+    });
+
+    const cars = await queryBuild.getMany();
+
+    return cars;
   }
 }
 

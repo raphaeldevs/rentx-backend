@@ -10,9 +10,14 @@ export interface ICreateCarDTO {
   category_id: string;
 }
 
+export type FindAvailableFilters = Partial<
+  Pick<Car, "name" | "brand" | "category_id">
+>;
+
 interface ICarsRepository {
   create(car: ICreateCarDTO): Promise<Car>;
   findByLicensePlate(license_plate: string): Promise<Car | undefined>;
+  findAvailable(filters: FindAvailableFilters): Promise<Car[]>;
 }
 
 export default ICarsRepository;
